@@ -1,13 +1,13 @@
 pipeline {
-    agent { label "dev-server"}
-    
+    agent any
     stages {
         
         stage("build"){
             steps{
-                 sh "npm install"  
-                 sh "npm run"
-                 echo 'Code build done'
+                sh "sudo npm cache clean"
+                sh "npm install"
+                sh "npm run"
+                echo 'Code build done'
             }
         }
         stage("deploy"){
